@@ -1,0 +1,17 @@
+[package]
+name = "af_bevy_specs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = { version = "0.9.1", features = ["dynamic"] }
+serde = "1.0.152"
+quote = "1.0.23"
+syn = "1.0.107"
+convert_case = "0.6.0"
+proc-macro2 = "1.0.51"
+prettyplease = "0.1.23"
+spec = { path = "spec" }
+spec_macro = { path = "spec_macro" }
