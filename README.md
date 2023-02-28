@@ -59,3 +59,14 @@ fn example_startup_system(gun_specs: Res<Assets<GunSpec>>) { ...
 
 `Assets<>` is augmented with `get_named` and `get_named_expect` methods to help you navigate around spec structures.
 
+## Loading
+
+Currently spec af_bevy_specs has an `AppState::Loading` phase during which all specs are loaded from disk. After this phase, all specs have their handles populated. If you want to further process specs after this, use the following:
+
+```rust
+        app.add_system_set(
+            SystemSet::on_exit(AppState::Loading)
+                .with_system(finalize_sprite_sheet_spec)
+                .after("populate"),
+        );
+```
